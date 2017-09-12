@@ -34,17 +34,22 @@ android {
     }
 }
 
-
+def supportLibVersion = '26.0.2'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //noinspection GradleCompatible
-    implementation 'com.android.support:appcompat-v7:26.0.2'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    compile "com.android.support:appcompat-v7:${supportLibVersion}"
+    compile "com.android.support:cardview-v7:${supportLibVersion}"
+    compile "com.android.support:recyclerview-v7:${supportLibVersion}"
+    compile "com.android.support:support-v4:${supportLibVersion}"
+    compile "com.android.support:design:${supportLibVersion}"
+
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     compile 'me.yokeyword:fragmentation:1.0.3'
     compile 'com.afollestad.material-dialogs:core:0.9.4.5'
@@ -81,6 +86,12 @@ dependencies {
         exclude module: "support-v13"
     }
     annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.4.0'
+
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'//支持未读消息小红点的tablayout
+
+    compile 'com.daimajia.numberprogressbar:library:1.4@aar'
+
+    compile 'top.zibin:Luban:1.1.2'// 可能是最接近微信朋友圈的图片压缩算法
 }
 
 repositories {

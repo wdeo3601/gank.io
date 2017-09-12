@@ -1,0 +1,7 @@
+<resources>
+
+    <dimen name="badge_red_dot_diameter">10pt</dimen>
+    <dimen name="bottom_bar_badge">16pt</dimen>
+
+
+</resources>

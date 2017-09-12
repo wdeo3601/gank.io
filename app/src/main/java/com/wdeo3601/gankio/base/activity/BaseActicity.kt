@@ -4,12 +4,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.StringRes
 import android.support.v4.content.ContextCompat
-import android.text.TextUtils
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
@@ -33,9 +31,9 @@ import me.yokeyword.fragmentation.anim.DefaultVerticalAnimator
 import me.yokeyword.fragmentation.anim.FragmentAnimator
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
+import permissions.dispatcher.PermissionRequest
 import rx.Subscription
 import rx.subscriptions.CompositeSubscription
-import permissions.dispatcher.PermissionRequest
 
 /**
  * Created by wendong on 2017/9/11 0011.
