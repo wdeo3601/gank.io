@@ -18,7 +18,7 @@ import com.wdeo3601.gankio.constant.Constants
 class AppStatusTracker(private val mApplication: Application) : Application.ActivityLifecycleCallbacks {
     //在线状态时 就注册广播
     //其他情况下 不需要广播 若是广播还在 则需要注销
-    var appstatus = Constants.STATUS_FORCE_KILLED
+    var appstatus = Constants.STATUS_ONLINE
         set(appstatus) {
             field = appstatus
             if (appstatus == Constants.STATUS_ONLINE) {
@@ -60,7 +60,7 @@ class AppStatusTracker(private val mApplication: Application) : Application.Acti
         return false
     }
 
-    override fun onActivityCreated(activity: Activity, bundle: Bundle) {}
+    override fun onActivityCreated(activity: Activity, bundle: Bundle?) {}
 
     override fun onActivityStarted(activity: Activity) {
         if (activeCount == 0) {
@@ -88,7 +88,7 @@ class AppStatusTracker(private val mApplication: Application) : Application.Acti
         }
     }
 
-    override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle) {
+    override fun onActivitySaveInstanceState(activity: Activity, bundle: Bundle?) {
 
     }
 

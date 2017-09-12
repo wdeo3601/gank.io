@@ -10,7 +10,6 @@ import com.facebook.stetho.Stetho
 import com.orhanobut.logger.LogLevel
 import com.orhanobut.logger.Logger
 import com.squareup.leakcanary.LeakCanary
-import com.uphyca.stetho_realm.RealmInspectorModulesProvider
 import com.wdeo3601.gankio.utils.AppStatusTracker
 import com.wdeo3601.gankio.utils.DensityHelper
 import rx.Observable
@@ -96,7 +95,7 @@ class App : MultiDexApplication() {
             Stetho.initialize(
                     Stetho.newInitializerBuilder(this)
                             .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
-                            .enableWebKitInspector(RealmInspectorModulesProvider.builder(this).build())
+                            .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
                             .build())
         }
     }

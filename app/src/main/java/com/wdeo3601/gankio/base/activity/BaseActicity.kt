@@ -14,7 +14,7 @@ import android.view.WindowManager
 import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
 import com.orhanobut.logger.Logger
-import com.wdeo3601.gankio.MainActivity
+import com.wdeo3601.gankio.modules.MainActivity
 import com.wdeo3601.gankio.R
 import com.wdeo3601.gankio.constant.Constants
 import com.wdeo3601.gankio.event.EmptyEvent
@@ -48,7 +48,7 @@ abstract class BaseActicity : SupportActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        when (AppStatusTracker.instance!!.appstatus) {
+        when (AppStatusTracker.instance?.appstatus) {
             Constants.STATUS_FORCE_KILLED -> protectApp()
             Constants.STATUS_KICK_OUT -> KickOut()
             Constants.STATUS_LOGOUT, Constants.STATUS_OFFLINE, Constants.STATUS_ONLINE -> {

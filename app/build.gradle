@@ -12,7 +12,13 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
+
+    lintOptions {
+        abortOnError false
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -73,7 +79,7 @@ dependencies {
     // Facebook stetho
     compile 'com.facebook.stetho:stetho:1.5.0'
     compile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
-    compile 'com.uphyca:stetho_realm:2.0.0'
+//    compile 'com.uphyca:stetho_realm:2.0.0'
     compile('com.github.hotchemi:permissionsdispatcher:2.4.0') {// 权限管理
         // if you don't use android.app.Fragment you can exclude support for them
         exclude group: 'com.android.support'
@@ -87,6 +93,9 @@ dependencies {
     // 可能是最接近微信朋友圈的图片压缩算法
     compile 'jp.wasabeef:recyclerview-animators:2.2.3'
     implementation 'com.github.bumptech.glide:glide:4.1.1'
+
+    compile 'com.jakewharton:butterknife:8.6.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
 }
 
 repositories {

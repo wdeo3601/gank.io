@@ -8,7 +8,7 @@ import com.wdeo3601.gankio.R
 import com.wdeo3601.gankio.base.mvp.IErrorView
 
 
-abstract class BaseErrorListFragment<T> : BaseListFragment<T>(), IErrorView {
+abstract class BaseErrorListFragment : BaseListFragment(), IErrorView {
     private var mErrorView: FrameLayout? = null
 
     override fun initView(rootView: View?) {

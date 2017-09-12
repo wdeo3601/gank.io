@@ -113,7 +113,7 @@ public class NetService {
             httpClient.addInterceptor(httpLoggingInterceptor);
         }
 
-    httpClient.addNetworkInterceptor(new StethoInterceptor());
+    httpClient.networkInterceptors().add(new StethoInterceptor());
 //        StethoUtils.configureInterceptor(httpClient);
         OkHttpClient okHttpClient = httpClient
                 .connectTimeout(30, TimeUnit.SECONDS)

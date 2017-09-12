@@ -40,7 +40,7 @@ class DensityHelper
         designWidth = width
 
         activityLifecycleCallbacks = object : Application.ActivityLifecycleCallbacks {
-            override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle) {
+            override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
                 //通常情况下application与activity得到的resource虽然不是一个实例，但是displayMetrics是同一个实例，只需调用一次即可
                 //为了面对一些不可预计的情况以及向上兼容，分别调用一次较为保险
                 resetDensity(mApplication, designWidth)
@@ -64,7 +64,7 @@ class DensityHelper
 
             }
 
-            override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
+            override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle?) {
 
             }
 
