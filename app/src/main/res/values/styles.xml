@@ -38,4 +38,13 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="RecyclerViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:overScrollMode">ifContentScrolls</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:fadingEdge">vertical</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+
 </resources>
