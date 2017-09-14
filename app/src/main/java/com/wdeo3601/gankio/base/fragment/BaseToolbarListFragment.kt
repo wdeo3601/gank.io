@@ -35,9 +35,9 @@ abstract class BaseToolbarListFragment : BaseToolbarFragment(), EnhancedRecycler
         mList = ArrayList()
 
         enhancedRecyclerView.setOnRefreshListener(this)
-        enhancedRecyclerView.setLayoutManager(layoutManager)
+        enhancedRecyclerView.setLayoutManager(getLayoutManager())
         enhancedRecyclerView.setAdapter(setupAdapter())
-        enhancedRecyclerView.addItemDecoration(itemDecoration)
+        enhancedRecyclerView.addItemDecoration(getItemDecoration())
 
         (enhancedRecyclerView.recyclerView
                 .itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
@@ -52,9 +52,12 @@ abstract class BaseToolbarListFragment : BaseToolbarFragment(), EnhancedRecycler
 
     protected abstract fun setupAdapter(): GeneralRecyclerViewAdapter
 
-    protected val layoutManager: ILayoutManager
-        get() = BaseLinearLayoutManager(context)
+    protected open fun getLayoutManager(): ILayoutManager {
+        return BaseLinearLayoutManager(context)
+    }
 
-    protected val itemDecoration: RecyclerView.ItemDecoration
-        get() = DividerItemDecoration(context, R.drawable.list_divider)
+    protected open fun getItemDecoration(): RecyclerView.ItemDecoration? {
+        return DividerItemDecoration(context, R.drawable.list_divider)
+    }
+
 }

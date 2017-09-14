@@ -1,6 +1,9 @@
 package com.wdeo3601.gankio.modules.delayupdate
 
 import android.annotation.SuppressLint
+import android.graphics.Color
+import android.os.Bundle
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.google.gson.Gson
 import com.wdeo3601.gankio.R
@@ -38,6 +41,11 @@ class DelayUpdateFragment : BaseToolbarListFragment() {
         super.initView(rootView)
         setTitle("每日更新")
         enhancedRecyclerView.enableLoadMore(false)
+        enhancedRecyclerView.setBackgroundColor(Color.rgb(243,244,246))
+    }
+
+    override fun initData(savedInstanceState: Bundle?) {
+        super.initData(savedInstanceState)
     }
 
     override fun onRefresh(action: Int) {
@@ -99,4 +107,7 @@ class DelayUpdateFragment : BaseToolbarListFragment() {
         return adapter
     }
 
+    override fun getItemDecoration(): RecyclerView.ItemDecoration? {
+        return null
+    }
 }

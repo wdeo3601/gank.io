@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="16pt"
+    android:layout_marginRight="16pt"
+    android:layout_marginTop="5pt"
+    android:layout_marginBottom="5pt"
+    android:background="@drawable/ic_recharge_bg"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/content"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16pt"
-        android:textColor="@android:color/black"
-        android:textSize="16pt" />
+        android:layout_marginBottom="10pt"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textview_who"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@android:color/black"
+            android:textSize="16pt" />
+
+        <TextView
+            android:id="@+id/textview_publish_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="right"
+            android:maxLines="1"
+            android:textColor="@color/protocol_grey_color_153"
+            android:textSize="14pt"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:padding="5pt"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textview_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:lineSpacingMultiplier="1.3"
+            android:textSize="16pt" />
+
+        <TextView
+            android:id="@+id/textview_create_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_gravity="right"
+            android:textColor="@color/protocol_grey_color_153"
+            android:textSize="14pt"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+
 </LinearLayout>
