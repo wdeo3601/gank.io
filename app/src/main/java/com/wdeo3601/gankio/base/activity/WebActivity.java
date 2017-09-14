@@ -66,6 +66,9 @@ public class WebActivity extends ToolbarActivity {
         DensityHelper.Companion.resetDensity(this, 375);
         super.initView();
         clearExtendToStatusBar();
+
+        mToolbar.setOverflowIcon(UIUtil.INSTANCE.getDrawable(R.drawable.ic_menu_default));
+
         mWebView = (WebView) findViewById(R.id.web_webView);
         mProgressbar = (NumberProgressBar) findViewById(R.id.web_progressbar);
         mTextSwitcher = (TextSwitcher) findViewById(R.id.textSwitcher_title);
@@ -162,8 +165,8 @@ public class WebActivity extends ToolbarActivity {
 
     @Override
     protected int getMenuId() {
-        return 0;
-        //return R.menu.menu_web;
+//        return 0;
+        return R.menu.menu_web;
     }
 
     @Override

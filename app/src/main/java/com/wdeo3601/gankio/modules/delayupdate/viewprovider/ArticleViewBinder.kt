@@ -11,6 +11,7 @@ import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.wdeo3601.gankio.R
+import com.wdeo3601.gankio.base.activity.WebActivity
 import com.wdeo3601.gankio.model.ContentModel
 import com.wdeo3601.gankio.utils.ImageLoader
 import me.drakeet.multitype.ItemViewBinder
@@ -42,6 +43,10 @@ class ArticleViewBinder : ItemViewBinder<ContentModel, ArticleViewBinder.ViewHol
         }
         holder.content.text = item.desc
         holder.textviewCreateTime.text = item.createdAt
+
+        holder.itemView.setOnClickListener {
+            WebActivity.startMe(holder.itemView.context,item.url,"详情")
+        }
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
