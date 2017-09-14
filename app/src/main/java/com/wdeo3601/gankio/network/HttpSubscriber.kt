@@ -43,22 +43,22 @@ abstract class HttpSubscriber<T> : Subscriber<T>(), INetResult<T> {
                         Logger.e(TAG, exception.response().message())
                         val bodyStr = exception.response().errorBody()!!.string()
                         Logger.e(TAG, bodyStr)
-                        //                        ErrorModel errorModel = new Gson().fromJson(bodyStr, ErrorModel.class);
-                        //                        if (errorModel != null) {
-                        //                            if (errorCode == 403) {
-                        //                                //用户被封禁
-                        //                                exitToIntroActivity();
-                        //                            } else {
-                        //                                if (errorModel.getErrors().getCode().equals("user not exist")) {
-                        //                                    //用户被删除
-                        //                                    exitToIntroActivity();
-                        //                                } else {
-                        //                                    onFail(errorCode, errorModel);
-                        //                                }
-                        //                            }
-                        //                        } else {
-                        //                            onDisconnect();
-                        //                        }
+//                                                ErrorModel errorModel = new Gson().fromJson(bodyStr, ErrorModel.class);
+//                                                if (errorModel != null) {
+//                                                    if (errorCode == 403) {
+//                                                        //用户被封禁
+//                                                        exitToIntroActivity();
+//                                                    } else {
+//                                                        if (errorModel.getErrors().getCode().equals("user not exist")) {
+//                                                            //用户被删除
+//                                                            exitToIntroActivity();
+//                                                        } else {
+//                                                            onFail(errorCode, errorModel);
+//                                                        }
+//                                                    }
+//                                                } else {
+//                                                    onDisconnect();
+//                                                }
                     } else {
                         //默认的错误信息
                         onDisconnect()

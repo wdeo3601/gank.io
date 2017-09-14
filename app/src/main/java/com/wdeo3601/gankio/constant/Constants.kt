@@ -21,5 +21,13 @@ object Constants {
     // Base API
     val BASE_URL = "http://gank.io/api/"
 
+    //contentType
+    val TYPE_ANDROID = "Android"
+    val TYPE_WELFARE = "福利"
+    val TYPE_IOS = "iOS"
+    val TYPE_REST_VIDEO = "休息视频"
+    val TYPE_EXPANDING_RESOURCE = "拓展资源"
+    val TYPE_WEB = "前端"
+
 
 }

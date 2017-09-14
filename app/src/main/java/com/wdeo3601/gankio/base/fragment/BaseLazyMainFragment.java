@@ -26,7 +26,7 @@ public abstract class BaseLazyMainFragment extends BaseFragment {
         } else {
             if (System.currentTimeMillis() - TOUCH_TIME < WAIT_TIME) {
                 _mActivity.finish();
-
+                System.exit(0);
             } else {
                 TOUCH_TIME = System.currentTimeMillis();
                 ToastUtil.INSTANCE.showShort(R.string.press_again_exit);

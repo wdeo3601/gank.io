@@ -14,7 +14,7 @@ import com.wdeo3601.gankio.utils.AndroidUtil
 import com.wdeo3601.gankio.utils.UIUtil
 
 
-abstract class BaseToolbarFragment : BaseFragment() {
+abstract class BaseToolbarFragment : BaseLazyMainFragment() {
     protected lateinit var mAppbar: AppBarLayout
     protected lateinit var mToolbar: Toolbar
     protected lateinit var mTitle: TextView

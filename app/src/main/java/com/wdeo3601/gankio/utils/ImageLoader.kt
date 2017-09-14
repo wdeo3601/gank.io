@@ -55,7 +55,7 @@ class ImageLoader private constructor() {
 
     //居中加载url网络图片
     fun loadImageUrlCenter(mContext: Context, url: String, imageView: ImageView,
-                           requestListener: RequestListener<Drawable>) {
+                           requestListener: RequestListener<Drawable>?) {
         Glide.with(mContext).load(url)
                 .apply(RequestOptions()
                         .diskCacheStrategy(DiskCacheStrategy.ALL))

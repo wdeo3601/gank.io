@@ -1,25 +1,14 @@
 package com.wdeo3601.gankio.network;
 
 
+import com.google.gson.JsonObject;
+import com.wdeo3601.gankio.base.mvp.data.BaseData;
 import com.wdeo3601.gankio.base.mvp.data.DelayData;
 
-import java.util.HashMap;
 import java.util.List;
 
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FieldMap;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.Headers;
-import retrofit2.http.Multipart;
-import retrofit2.http.POST;
-import retrofit2.http.Part;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -28,16 +17,21 @@ import rx.Observable;
  * Description:
  */
 public interface Api {
+
+    /**
+     * 获取发过干货日期接口:
+     * @return
+     */
+    @GET("day/history")
+    Observable<BaseData<List<String>>> getUpdateDate();
+
     /**
      * 获取每日推荐
      *
-     * @param year
-     * @param month
-     * @param day
+     * @param date
      * @return
      */
-    @GET("day/{year}/{month}/{day}")
-    Observable<DelayData<String>> getDelayData(@Path("year") int year
-            , @Path("month") int month
-            , @Path("day") int day);
+    @GET("day/{date}")
+    Observable<DelayData<JsonObject>> getDelayData(@Path("date") String date);
+
 }

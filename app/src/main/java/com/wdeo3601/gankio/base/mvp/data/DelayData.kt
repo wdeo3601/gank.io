@@ -5,4 +5,6 @@ package com.wdeo3601.gankio.base.mvp.data
  * Email:       wdeo3601@163.com
  * Description:
  */
-class DelayData<T>(var category: List<String>, results: Results<T>, error: Boolean) : BaseData<T>(results, error)
+class DelayData<T>(var category: List<String>, results: T, error: Boolean) : BaseData<T>(results, error){
+
+}

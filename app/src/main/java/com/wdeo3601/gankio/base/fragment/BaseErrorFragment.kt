@@ -12,7 +12,7 @@ import com.wdeo3601.gankio.base.mvp.IErrorView
  * Description: 包含错误页面的 fragment
  */
 
-abstract class BaseErrorFragment : BaseFragment(), IErrorView {
+abstract class BaseErrorFragment : BaseLazyMainFragment(), IErrorView {
     private var mErrorView: FrameLayout? = null
 
     override fun initView(rootView: View?) {

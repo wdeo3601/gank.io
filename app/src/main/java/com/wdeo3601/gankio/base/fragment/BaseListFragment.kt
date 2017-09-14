@@ -15,9 +15,9 @@ import com.wdeo3601.gankio.widget.pulltorefresh.layoutManager.ILayoutManager
 import java.util.ArrayList
 
 
-abstract class BaseListFragment : BaseFragment(), EnhancedRecyclerView.OnRecyclerRefreshListener {
+abstract class BaseListFragment : BaseLazyMainFragment(), EnhancedRecyclerView.OnRecyclerRefreshListener {
 
-    protected var mList: List<Any>? = null
+    protected var mList: MutableList<Any>? = null
     protected lateinit var mRecyclerView: RecyclerView
 
     protected lateinit var enhancedRecyclerView: EnhancedRecyclerView

@@ -3,11 +3,10 @@ package com.wdeo3601.gankio.widget.pulltorefresh;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-
-import com.wdeo3601.gankio.widget.pulltorefresh.multitype.MultiTypeAdapter;
-import com.wdeo3601.gankio.widget.pulltorefresh.multitype.MultiTypePool;
-
 import java.util.List;
+
+import me.drakeet.multitype.MultiTypeAdapter;
+import me.drakeet.multitype.MultiTypePool;
 
 /**
  * Created by Meng on 2017/2/17.

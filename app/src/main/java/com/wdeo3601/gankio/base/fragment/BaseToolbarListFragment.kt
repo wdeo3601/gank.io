@@ -4,20 +4,21 @@ import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SimpleItemAnimator
 import android.view.View
-
 import com.wdeo3601.gankio.R
-import com.wdeo3601.gankio.widget.pulltorefresh.BaseRecyclerView
 import com.wdeo3601.gankio.widget.pulltorefresh.EnhancedRecyclerView
 import com.wdeo3601.gankio.widget.pulltorefresh.GeneralRecyclerViewAdapter
 import com.wdeo3601.gankio.widget.pulltorefresh.decoration.DividerItemDecoration
 import com.wdeo3601.gankio.widget.pulltorefresh.layoutManager.BaseLinearLayoutManager
 import com.wdeo3601.gankio.widget.pulltorefresh.layoutManager.ILayoutManager
-
 import java.util.ArrayList
 
-abstract class BaseBackListFragment<T> : BaseBackFragment(), EnhancedRecyclerView.OnRecyclerRefreshListener {
-
-    protected var mList: MutableList<T>? = null
+/**
+ * Created by wendong on 2017/9/14 0014.
+ * Email:       wdeo3601@163.com
+ * Description:
+ */
+abstract class BaseToolbarListFragment : BaseToolbarFragment(), EnhancedRecyclerView.OnRecyclerRefreshListener {
+    protected lateinit var mList: MutableList<Any>
     protected lateinit var mRecyclerView: RecyclerView
 
     protected lateinit var enhancedRecyclerView: EnhancedRecyclerView
@@ -31,7 +32,7 @@ abstract class BaseBackListFragment<T> : BaseBackFragment(), EnhancedRecyclerVie
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-        if (mList == null) mList = ArrayList()
+        mList = ArrayList()
 
         enhancedRecyclerView.setOnRefreshListener(this)
         enhancedRecyclerView.setLayoutManager(layoutManager)
@@ -56,5 +57,4 @@ abstract class BaseBackListFragment<T> : BaseBackFragment(), EnhancedRecyclerVie
 
     protected val itemDecoration: RecyclerView.ItemDecoration
         get() = DividerItemDecoration(context, R.drawable.list_divider)
-
 }
