@@ -64,7 +64,7 @@ class DelayUpdateFragment : BaseToolbarListFragment() {
                 .map {
                     TextOutsideCircleButton.Builder()
                             .listener { index -> Toast.makeText(_mActivity, "Clicked " + index, Toast.LENGTH_SHORT).show() }
-                            .normalImageRes(R.drawable.default_menu)
+                            .normalImageRes(menuicons[it])
                             .normalText(menutexts[it])
                 }
                 .forEach { boomButton.addBuilder(it) }
