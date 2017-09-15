@@ -5,7 +5,11 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.Toast
 import com.google.gson.Gson
+import com.nightonke.boommenu.BoomButtons.TextInsideCircleButton
+import com.nightonke.boommenu.BoomButtons.TextOutsideCircleButton
+import com.nightonke.boommenu.BoomMenuButton
 import com.wdeo3601.gankio.R
 import com.wdeo3601.gankio.base.fragment.BaseToolbarListFragment
 import com.wdeo3601.gankio.constant.Constants
@@ -14,10 +18,11 @@ import com.wdeo3601.gankio.modules.delayupdate.viewprovider.ArticleViewBinder
 import com.wdeo3601.gankio.modules.delayupdate.viewprovider.ImgViewBinder
 import com.wdeo3601.gankio.modules.delayupdate.viewprovider.TitleViewBinder
 import com.wdeo3601.gankio.network.HttpSubscriber
+import com.wdeo3601.gankio.utils.UIUtil
 import com.wdeo3601.gankio.widget.pulltorefresh.GeneralRecyclerViewAdapter
-import me.drakeet.multitype.Linker
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
+
 
 @Suppress("UNREACHABLE_CODE")
 /**
@@ -28,6 +33,10 @@ import rx.schedulers.Schedulers
 class DelayUpdateFragment : BaseToolbarListFragment() {
 
     lateinit var adapter: GeneralRecyclerViewAdapter
+    lateinit var boomButton: BoomMenuButton
+
+    var menuicons = arrayOf(R.drawable.android,R.drawable.ios,R.drawable.web,R.drawable.extra,R.drawable.img,R.drawable.video)
+    var menutexts = arrayOf("Android","Ios","Web前端","拓展资源","福利","休息视频")
 
     companion object {
         @SuppressLint("StaticFieldLeak")
@@ -40,12 +49,25 @@ class DelayUpdateFragment : BaseToolbarListFragment() {
     override fun initView(rootView: View?) {
         super.initView(rootView)
         setTitle("每日更新")
+        boomButton = rootView!!.findViewById(R.id.bmb)
         enhancedRecyclerView.enableLoadMore(false)
-        enhancedRecyclerView.setBackgroundColor(Color.rgb(243,244,246))
+        enhancedRecyclerView.setBackgroundColor(Color.rgb(243, 244, 246))
     }
 
     override fun initData(savedInstanceState: Bundle?) {
         super.initData(savedInstanceState)
+        initBoomMenuButton()
+    }
+
+    private fun initBoomMenuButton() {
+        (0 until boomButton.piecePlaceEnum.pieceNumber())
+                .map {
+                    TextOutsideCircleButton.Builder()
+                            .listener { index -> Toast.makeText(_mActivity, "Clicked " + index, Toast.LENGTH_SHORT).show() }
+                            .normalImageRes(R.drawable.default_menu)
+                            .normalText(menutexts[it])
+                }
+                .forEach { boomButton.addBuilder(it) }
     }
 
     override fun onRefresh(action: Int) {
